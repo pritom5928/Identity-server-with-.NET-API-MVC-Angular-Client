@@ -48,8 +48,27 @@ services.AddAuthentication(opt =>
         RoleClaimType = "role"
     };
 
+    opt.Scope.Add("companyApi");
+
+    opt.Scope.Add("position");
+    opt.Scope.Add("country");
+    opt.ClaimActions.MapUniqueJsonKey("position", "position");
+    opt.ClaimActions.MapUniqueJsonKey("country", "country");
+
     //opt.ClaimActions.MapUniqueJsonKey("address", "address");
 });
+
+//policy
+services.AddAuthorization(authOpt =>
+{
+    authOpt.AddPolicy("CanCreateAndModifyData", policyBuilder =>
+    {
+        policyBuilder.RequireAuthenticatedUser();
+        policyBuilder.RequireClaim("position", "Administrator");
+        policyBuilder.RequireClaim("country", "USA");
+    });
+});
+
 #endregion
 
 services.AddControllersWithViews();

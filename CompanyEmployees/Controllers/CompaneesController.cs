@@ -24,8 +24,8 @@ namespace CompanyEmployees.Controllers
             }});
         }
 
+        [Authorize]
         [HttpGet]
-        //[Authorize]
         public async Task<IActionResult> GetCompanies()
         {
             var dd = User.Claims;
