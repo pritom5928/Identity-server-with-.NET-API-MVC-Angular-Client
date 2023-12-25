@@ -12,7 +12,9 @@ namespace ISCodeMaze.Configuration
           new List<IdentityResource>
           {
              new IdentityResources.OpenId(),
-             new IdentityResources.Profile()
+             new IdentityResources.Profile(),
+              new IdentityResources.Address(),
+              new IdentityResource("roles", "User role(s)", new List<string> { "role" })
           };
 
         //users
@@ -27,7 +29,9 @@ namespace ISCodeMaze.Configuration
                   Claims = new List<Claim>
                   {
                       new Claim("given_name", "Mick"),
-                      new Claim("family_name", "Mining")
+                      new Claim("family_name", "Mining"),
+                      new Claim("address", "Sunny Street 4"),
+                      new Claim("role", "Admin")
                   }
               },
               new TestUser
@@ -38,7 +42,9 @@ namespace ISCodeMaze.Configuration
                   Claims = new List<Claim>
                   {
                       new Claim("given_name", "Jane"),
-                      new Claim("family_name", "Downing")
+                      new Claim("family_name", "Downing"),
+                      new Claim("address", "Long Avenue 289"),
+                      new Claim("role", "Visitor")
                   }
               }
           };
@@ -61,9 +67,14 @@ namespace ISCodeMaze.Configuration
                  AllowedGrantTypes = GrantTypes.Hybrid,
                  RedirectUris = new List<string>{ "https://localhost:7031/signin-oidc" },
                  RequirePkce = false,
-                 AllowedScopes = { IdentityServerConstants.StandardScopes.OpenId,       IdentityServerConstants.StandardScopes.Profile },
+                 AllowedScopes = {
+                       IdentityServerConstants.StandardScopes.OpenId,  IdentityServerConstants.StandardScopes.Profile,
+                       IdentityServerConstants.StandardScopes.Address,
+                       "roles"
+                 },
                  ClientSecrets = { new Secret("MVCSecret".Sha512()) },
-                 PostLogoutRedirectUris = new List<string> { "https://localhost:7031/signout-callback-oidc" }
+                 PostLogoutRedirectUris = new List<string> { "https://localhost:7031/signout-callback-oidc" },
+                 RequireConsent = true
            }
         };
 

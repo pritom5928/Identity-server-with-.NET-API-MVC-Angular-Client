@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "oFUSpAk6wNt5USbr2xUCX193hcygkYuNH96mm0PGAcdn06bQu0Coy1ZYA9AwSy3I84b1X8ti9ZntDc2jY8Fdmg==",
+  "dgSpecHash": "Rm8aFEumiYWpbnVHceqAHZxnr/Hcu9WUu1W5i9zJEqfqOF6DyYz+rxPqCrJt2tKT8Q6cLGN1iGDtuSMXU0/17A==",
   "success": true,
   "projectFilePath": "D:\\Self Files\\Full Stack study\\identity server\\ISCodeMaze\\CompanyEmployees.Client\\CompanyEmployees.Client.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\prito\\.nuget\\packages\\identitymodel\\6.2.0\\identitymodel.6.2.0.nupkg.sha512",
     "C:\\Users\\prito\\.nuget\\packages\\microsoft.aspnetcore.authentication.openidconnect\\6.0.25\\microsoft.aspnetcore.authentication.openidconnect.6.0.25.nupkg.sha512",
     "C:\\Users\\prito\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\prito\\.nuget\\packages\\microsoft.identitymodel.jsonwebtokens\\6.10.0\\microsoft.identitymodel.jsonwebtokens.6.10.0.nupkg.sha512",
